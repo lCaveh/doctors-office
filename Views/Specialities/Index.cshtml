@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+<h1> List of all specialities</h1>
+<ol>
+  @foreach (var speciality in Model)
+  {
+    <li><a href="/specialities/@speciality.GetId()">@speciality.GetName()</a></li>
+  }
+</ol>
+
+  <h3><a href='/specialities/new'>Add a new speciality</a></h3>
+  <h3><a href="/">Go Back Home</a></h3>
+
+</div>

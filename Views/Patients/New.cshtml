@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+<h1>Add a Patient</h1>
+
+<form action="/patients" method="post">
+  <label for="PatientName">Patient name</label>
+  <input id="PatientName" name="PatientName" type="text"><br>
+  <label for="PatientDateOfBirth">Patient birthdate</label>
+  <input id="PatientDateOfBirth" name="PatientDateOfBirth" type="date"><br>
+
+  <label for="specialists">Select a Specialist</label>
+  <select id="specialists" name="specialists">
+  @for (i=1;i<Model.Count;i++)
+    {
+      <option value=@i>@Model["specialities"][i].GetName() @Model["doctors"][i].GetName()</option>
+    }
+  </select><br>
+
+  <button type="submit">Add</button>
+</form>
+
+
+
+<p><a href="/">Back home</a></p>
+<p><a href="/patients">Back to the list of all patients.</a></p>
+
+</div>

@@ -1,0 +1,36 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+<h1>Add a Doctor</h1>
+
+<form action="/doctors" method="post">
+  <label for="DoctorName">Doctor name</label>
+  <input id="DoctorName" name="DoctorName" type="text"><br>
+
+  <label for="firstSpeciality">Select first Speciality</label>
+  <select id="firstSpeciality" name="firstSpeciality">
+  @foreach (var speciality in Model)
+  {
+    <option value=@speciality.GetId()>@speciality.GetName()</option>
+  }
+</select><br>
+
+<label for="secondSpeciality">Second Speciality</label>
+<select id="secondSpeciality" name="secondSpeciality">
+@foreach (var speciality in Model)
+{
+  <option value=@speciality.GetId()>@speciality.GetName()</option>
+}
+</select><br>
+
+  <button type="submit">Add</button>
+</form>
+
+
+
+<p><a href="/">Back home</a></p>
+<p><a href="/doctors">Back to the list of all doctors.</a></p>
+
+</div>
